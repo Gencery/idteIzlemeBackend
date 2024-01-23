@@ -1,0 +1,34 @@
+//FAALİYETLER
+Faaliyet İsmi	                - any
+Activity Name	                - any
+YŞEP/SECAP Eylemi	            - dropdown
+Description                   - any
+Note	                        - any
+Status	                      - dropdown
+Faaliyet Tanımı	              - any
+YŞEP/SECAP Eylem İsmi	        - dropdown
+Sektör	                      - dropdown
+Alt Sektör	                  - dropdown
+Plan/Taahhüt	                - dropdown
+Durum Özeti	                  - any
+Maliyet	                      - number
+Başlama	                      - date
+Bitiş	                        - date
+Durum	                        - dropdown
+Ana Yürütücü Kurum	          - dropdown
+Ana Yürütücü Birim	          - dropdown
+İlgili Müdürlük	              - dropdown / multiple
+Proje Ortağı Birim/Kurum      - dropdown / multiple
+İletişim Kişisi	              - input / multiple
+Azaltım/Uyum	                - dropdown
+Faaliyet Türü	                - dropdown
+Proje Türü	                  - dropdown
+Üst Proje	                    - dropdown / any
+İzleme	                      - dropdown
+İklim Değişikliği Faydası	    - any
+Ana Azaltım Faaliyeti	        - dropdown
+Uyum Faaliyetleri	            - dropdown / multiple
+Kaynaklar	                    - any
+Websitesi	                    - any
+Notlar	                      - any
+Gösterge	2019	2020	2021	2022	2023	2024

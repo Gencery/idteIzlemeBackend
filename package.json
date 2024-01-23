@@ -1,0 +1,21 @@
+{
+  "name": "idteizleme_backend",
+  "version": "1.0.0",
+  "description": "idte için secap/yşep izleme",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon --env-file=.env ./index.js"
+  },
+  "author": "gencery",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
