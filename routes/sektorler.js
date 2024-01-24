@@ -5,13 +5,16 @@ import db from "./../conn.js";
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
 router.get("/sektorler/list", async (req, res) => {
-	const result = await db.collection("sektorler").find().toArray();
+	const result = await db
+		.collection("sektorler")
+		.aggregate([{ $sort: { name: 1 } }], { collation: { locale: "tr" } })
+		.toArray();
 	//.find({ age: { $gte: 25 } })
 	//.toArray();
 
 	res.json({
 		count: result.length,
-		result: result.sort((a, b) => (a.name > b.name ? 1 : -1)),
+		result: result,
 	});
 });
 
