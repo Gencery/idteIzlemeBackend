@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import sektorler from "./routes/sektorler.js";
+import altSektorler from "./routes/altSektorler.js";
 //
 import db from "./conn.js";
 //
@@ -9,7 +10,7 @@ const port = 3000;
 
 app.use(cors());
 
-app.use("/", sektorler);
+app.use("/", [sektorler, altSektorler]);
 
 app.get("/", (req, res) => {
 	res.status(200).json({
@@ -17,19 +18,6 @@ app.get("/", (req, res) => {
 	});
 });
 
-app.get("/test/:startsWith", async (req, res) => {
-	const startsWith = new RegExp(req.params.startsWith, "gi");
-	const result = await db
-		.collection("sektorler")
-		.find({ name: { $regex: startsWith } })
-		.sort({ name: 1 }, { collation: { locale: "tr" } })
-		.toArray();
-
-	res.status(200).json({
-		msg: "",
-		data: result,
-	});
-});
 
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);

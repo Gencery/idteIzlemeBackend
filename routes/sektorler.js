@@ -18,6 +18,21 @@ router.get("/sektorler/list", async (req, res) => {
 	});
 });
 
+//READ SECTORS STARTS WITH (* girince hata veriyor)
+router.get("/sektorler/startsWith/:startsWith", async (req, res) => {
+	const startsWith = new RegExp(req.params.startsWith, "gi");
+	const result = await db
+		.collection("sektorler")
+		.find({ name: { $regex: startsWith } })
+		.sort({ name: 1 }, { collation: { locale: "tr" } })
+		.toArray();
+
+	res.status(200).json({
+		msg: "",
+		data: result,
+	});
+});
+
 //ADD A SECTOR
 router.get("/sektorler/add/:name/", async (req, res) => {
 	const result = await db
@@ -26,7 +41,7 @@ router.get("/sektorler/add/:name/", async (req, res) => {
 	res.json(result);
 });
 
-//DELETE ONE SECTOR
+//DELETE A SECTOR
 router.get("/sektorler/delete/:id", async (req, res) => {
 	const result = await db
 		.collection("sektorler")
@@ -45,5 +60,7 @@ router.get("/sektorler/update/:id/:name/", async (req, res) => {
 
 	res.json(result);
 });
+
+
 
 export default router;
