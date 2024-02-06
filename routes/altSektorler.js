@@ -57,7 +57,7 @@ router.get("/altSektorler/delete/:id", async (req, res) => {
 // //UPDATE A SUBSECTOR
 router.get("/altSektorler/update/:id/:sektorId/:name", async (req, res) => {
    const result = await db
-      .collection("sektorler")
+      .collection("altSektorler")
       .replaceOne(
          { _id: new mongodb.ObjectId(req.params.id) },
          { name: req.params.name, sektorId: req.params.sektorId }
