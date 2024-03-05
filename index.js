@@ -2,15 +2,16 @@ import express from "express";
 import cors from "cors";
 import sektorler from "./routes/sektorler.js";
 import altSektorler from "./routes/altSektorler.js";
+import ibbOrganizasyon from "./routes/ibbOrganizasyon.js"
 //
-import db from "./conn.js";
+//import db from "./conn.js";
 //
 const app = express();
 const port = 3000;
 
 app.use(cors());
 
-app.use("/", [sektorler, altSektorler]);
+app.use("/", [sektorler, altSektorler, ibbOrganizasyon]);
 
 app.get("/", (req, res) => {
 	res.status(200).json({
