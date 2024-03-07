@@ -8,20 +8,31 @@ router.get("/ibbOrganizasyon", async (req, res) => {
 		.then(res => res.text())
 		.then(data => {
 
-			//let regex = /<span class="[baslik|adsoyad]">.+<\/span>/g;
 			let regex = /<span class="(adsoyad|baslik)">.+<\/span>/g;
 			let result = data.match(regex);
-			//
+
+			function trimBirim(nodeStr) {
+				return nodeStr.replace(/<[^>]+>/g, '').trim();
+			}
+
+			let organizasyon = [];
+
+			result = result.map(item => {
+				if (item.includes("baslik")) {
+					organizasyon.push({ baskanlikAdi: trimBirim(item), birimler: [] });
+				}
+				else if (item.includes("adsoyad")) {
+					let currentIndex = organizasyon.length - 1;
+					organizasyon[currentIndex].birimler.push(trimBirim(item));
+				}
+				else {
+					console.error("Baskanlık veya birim değil!");
+				}
+			})
+
 			res.json({
-				result: result
-			});
+				result: organizasyon.slice(2)
+			})
 		})
-
-
-
-});
-
-
-
-
+})
 export default router;

@@ -3,6 +3,7 @@ import cors from "cors";
 import sektorler from "./routes/sektorler.js";
 import altSektorler from "./routes/altSektorler.js";
 import ibbOrganizasyon from "./routes/ibbOrganizasyon.js"
+import ibbSirketler from "./routes/ibbSirketler.js"
 //
 //import db from "./conn.js";
 //
@@ -11,7 +12,7 @@ const port = 3000;
 
 app.use(cors());
 
-app.use("/", [sektorler, altSektorler, ibbOrganizasyon]);
+app.use("/", [sektorler, altSektorler, ibbOrganizasyon, ibbSirketler]);
 
 app.get("/", (req, res) => {
 	res.status(200).json({

@@ -1,0 +1,31 @@
+import express from "express";
+
+const router = express.Router();
+//READ ALL SECTORS (OR add a condition)
+router.get("/ibbSirketler", async (req, res) => {
+
+	fetch("https://www.izmir.bel.tr/tr/Sirketler/169", {
+		headers: { "Content-Type": "text/html; charset=UTF-8" }
+	})
+		.then(res => res.text())
+		.then(data => {
+
+			let regex = /<h4 style="color:#5d574d">.+<\/h4>/g;
+			let result = data.match(regex);
+
+			function trimSirket(nodeStr) {
+				return nodeStr.replace(/<[^>]+>/g, '').trim();
+			}
+
+			let sirketler = [];
+
+			result = result.map(item => {
+				sirketler.push(trimSirket(item))
+			})
+
+			res.json({
+				result: sirketler
+			})
+		})
+})
+export default router;
