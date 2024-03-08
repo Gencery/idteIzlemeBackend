@@ -1,4 +1,5 @@
 import express from "express";
+import { fromHtmlEntities } from "../utils.js"
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
@@ -9,8 +10,9 @@ router.get("/ibbSirketler", async (req, res) => {
 		.then(data => {
 			let regex = /<h4 style="color:#5d574d">.+<\/h4>/g;
 			let result = data.match(regex);
+			//
 			function trimSirket(nodeStr) {
-				return nodeStr.replace(/<[^>]+>/g, '').trim();
+				return fromHtmlEntities(nodeStr.replace(/<[^>]+>/g, '').trim());
 			}
 
 			let sirketler = [];
