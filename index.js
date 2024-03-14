@@ -28,5 +28,5 @@ app.listen(port, () => {
 
 //keep server alive to do a task every 14 minutes
 cron.schedule('*/14 * * * *', ()=>{
-	;
+	fetch("/")
 })
