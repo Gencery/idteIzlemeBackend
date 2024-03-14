@@ -1,5 +1,6 @@
 import express from "express";
 import cors from "cors";
+import cron from "node-cron";
 import sektorler from "./routes/sektorler.js";
 import altSektorler from "./routes/altSektorler.js";
 import ibbOrganizasyon from "./routes/ibbOrganizasyon.js"
@@ -24,3 +25,8 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });
+
+//keep server alive by pinging it every 14 minutes
+cron.schedule('*/14 * * * *', ()=>{
+	fetch("https://idteizlemebackend.onrender.com/").then(res => res.json()).then(data => console.log(data.msg));
+})
