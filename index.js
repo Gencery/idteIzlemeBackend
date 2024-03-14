@@ -27,6 +27,6 @@ app.listen(port, () => {
 });
 
 //keep server alive to do a task every 14 minutes
-cron.schedule('*/14 * * * *', ()=>{
-	fetch("/")
+cron.schedule('*/1 * * * *', ()=>{
+	fetch("https://idteizlemebackend.onrender.com/").then(res => res.json()).then(data => console.log(data.msg));
 })
