@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npx nodemon --env-file=.env ./index.js"
+    "dev": "npx nodemon --env-file=.env ./index.js",
+    "start": "node --env-file=.env ./index.js"
   },
   "author": "gencery",
   "license": "ISC",
