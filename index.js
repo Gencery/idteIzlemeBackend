@@ -26,7 +26,7 @@ app.listen(port, () => {
 	console.log(`Example app listening on port ${port}`);
 });
 
-//keep server alive by pinging it every 14 minutes
-cron.schedule('*/14 * * * *', ()=>{
-	fetch("https://idteizlemebackend.onrender.com/").then(res => res.json()).then(data => console.log(data.msg));
-})
+// //keep server alive by pinging it every 14 minutes
+// cron.schedule('*/14 * * * *', ()=>{
+// 	fetch("https://idteizlemebackend.onrender.com/").then(res => res.json()).then(data => console.log(data.msg));
+// })
