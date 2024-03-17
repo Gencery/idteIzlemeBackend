@@ -40,4 +40,5 @@ SECAP/YŞEP                              - SECAP - YŞEP - SECAP/YŞEP
 Yetki                                   - Kent - Belediye - Kent/Belediye
 Energy Savings (MWh)                    - number
 Renewable energy production (MWh)       - number
-Renewable energy production (MWh)       - number
+Toplam Azaltım CO2e (Ton)               - number
+Mevcut Yapılanlar                       - list
