@@ -32,3 +32,12 @@ Kaynaklar	                    - any
 Websitesi	                    - any
 Notlar	                      - any
 Gösterge	2019	2020	2021	2022	2023	2024
+
+//EYLEMLER
+Eylem Kodu                              - any
+Eylem Adı                               - any
+SECAP/YŞEP                              - SECAP - YŞEP - SECAP/YŞEP
+Yetki                                   - Kent - Belediye - Kent/Belediye
+Energy Savings (MWh)                    - number
+Renewable energy production (MWh)       - number
+Renewable energy production (MWh)       - number
