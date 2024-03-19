@@ -16,27 +16,12 @@ router.get("/eylemler/list/all", async (req, res) => {
 	});
 });
 
-//READ SECTORS STARTS WITH (* girince hata veriyor)
-// router.get("/sektorler/startsWith/:startsWith", async (req, res) => {
-// 	const startsWith = new RegExp(req.params.startsWith, "gi");
-// 	const result = await db
-// 		.collection("sektorler")
-// 		.find({ name: { $regex: startsWith } })
-// 		.sort({ name: 1 }, { collation: { locale: "tr" } })
-// 		.toArray();
-
-// 	res.status(200).json({
-// 		msg: "",
-// 		data: result,
-// 	});
-// });
-
 //ADD AN EYLEM
 router.post("/eylemler/add/", async (req, res) => {
 	const result = await db
 		.collection("eylemler")
 		.insertOne(req.body);
-	//res.json({"msg":result, added: req.body});
+	res.json({"msg":result, added: req.body});
 });
 
 //DELETE EYLEM
@@ -47,18 +32,21 @@ router.get("/eylemler/delete/:id", async (req, res) => {
 	res.json(result);
 });
 
-//UPDATE A SECTOR
-router.get("/sektorler/update/:id/:name/", async (req, res) => {
+//UPDATE EYLEM
+router.put("/eylemler/update/", async (req, res) => {
+
+	let id = req.body._id;
+	let body = req.body;
+	delete body._id;
+	//
 	const result = await db
-		.collection("sektorler")
+		.collection("eylemler")
 		.replaceOne(
-			{ _id: new mongodb.ObjectId(req.params.id) },
-			{ name: req.params.name }
+			{ _id: new mongodb.ObjectId(id) },
+			{ ...body }
 		);
 
-	res.json(result);
+		res.json({"msg":result, added: req.body});
 });
-
-
 
 export default router;
