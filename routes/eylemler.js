@@ -21,7 +21,7 @@ router.post("/eylemler/add/", async (req, res) => {
 	const result = await db
 		.collection("eylemler")
 		.insertOne(req.body);
-	res.json({"msg":result, added: req.body});
+	res.json({ "msg": result, added: req.body });
 });
 
 //DELETE EYLEM
@@ -46,7 +46,7 @@ router.put("/eylemler/update/", async (req, res) => {
 			{ ...body }
 		);
 
-		res.json({"msg":result, added: req.body});
+	res.json({ "msg": result, added: req.body });
 });
 
 export default router;
