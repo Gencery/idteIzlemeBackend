@@ -33,11 +33,10 @@ router.get("/eylemler/delete/:id", async (req, res) => {
 });
 
 //UPDATE EYLEM
-router.put("/eylemler/update/", async (req, res) => {
+router.put("/eylemler/update/:id", async (req, res) => {
 
-	let id = req.body._id;
+	let id = req.parameters.id;
 	let body = req.body;
-	delete body._id;
 	//
 	const result = await db
 		.collection("eylemler")
