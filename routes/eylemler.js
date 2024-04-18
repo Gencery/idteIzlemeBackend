@@ -35,7 +35,7 @@ router.get("/eylemler/delete/:id", async (req, res) => {
 //UPDATE EYLEM
 router.put("/eylemler/update/:id", async (req, res) => {
 
-	let id = req.parameters.id;
+	let id = req.params.id;
 	let body = req.body;
 	//
 	const result = await db
