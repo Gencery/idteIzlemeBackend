@@ -1,64 +1,60 @@
 //FAALİYETLER
-Faaliyet Kodu	
-Faaliyet İsmi	
-Activity Name	
-YŞEP/SECAP Eylemi	
-Description Note	
-Status	
-Faaliyet Tanımı	
-YŞEP/SECAP Eylem İsmi	
-Sektör	
-Alt Sektör	
-Plan/Taahhüt	
-Durum Özeti	
-Maliyet	
-Başlama	
-Bitiş	
-Durum	
-Ana Yürütücü Kurum	
-Ana Yürütücü Birim	
-İlgili Müdürlük	
-Proje Ortağı Birim/Kurum	
-İletişim Kişisi	
-Azaltım/Uyum	
-Faaliyet Türü	
-Proje Türü	
-Üst Proje	
-İzleme	
-İklim Değişikliği Faydası	
-Ana Azaltım Faaliyeti	
-Uyum Faaliyetleri	
-Kaynaklar	
-Websitesi	
-Notlar	
-Gösterge	2019	2020	2021	2022	2023	2024																			
+Faaliyet Kodu
+Faaliyet İsmi
+Activity Name
+YŞEP/SECAP Eylemi
+Description Note
+Status
+Faaliyet Tanımı
+YŞEP/SECAP Eylem İsmi
+Sektör
+Alt Sektör
+Plan/Taahhüt
+Durum Özeti
+Maliyet
+Başlama
+Bitiş
+Durum
+Ana Yürütücü Kurum
+Ana Yürütücü Birim
+İlgili Müdürlük
+Proje Ortağı Birim/Kurum/Şirketler
+İletişim Kişisi
+Azaltım/Uyum
+Faaliyet Türü
+Proje Türü
+Üst Proje
+İzleme
+İklim Değişikliği Faydası
+Ana Azaltım Faaliyeti
+Uyum Faaliyetleri
+Kaynaklar
+Websitesi
+Notlar
+Gösterge	2019	2020	2021	2022	2023	2024
 
 //EYLEMLER
-Eylem Kodu	
+Eylem Kodu
 Eylem Adı
-Eylem Alanı	
-Yetki	
-Stratejik Plan	
-Eylem Türü	
-Eylem Tanımı	
-Eylem Adımları	
-Planlanan Başlanma	
-Planlanan Bitiş	
-YŞEP İzleme	
-SP Başlanacak	
-SP Açıklama	
-Koordinatör Birim	
-İlgili Birimler	
-Şirketler	
-İlgili Kurum	
-NOT	
-Azaltım Not Tur	
-Azaltım Not Eng	
-Energy savings (MWh)	
-Renewable energy production (MWh)	
-Toplam Azaltım CO2e (Ton)	
-Tahmini maliyet	
-Hedef	
-Gösterge	
-Risk/Kırılganlıklar	
-Mevcut Yapılanlar											
+Eylem Alanı
+Yetki
+Stratejik Plan
+Eylem Türü
+Eylem Tanımı
+Eylem Adımları
+Planlanan Başlanma
+Planlanan Bitiş
+YŞEP İzleme
+SP Başlanacak
+SP Açıklama
+NOT
+Azaltım Not Tur
+Azaltım Not Eng
+Energy savings (MWh)
+Renewable energy production (MWh)
+Toplam Azaltım CO2e (Ton)
+Tahmini maliyet
+Hedef
+Gösterge
+Risk/Kırılganlıklar
+Mevcut Yapılanlar
