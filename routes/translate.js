@@ -10,7 +10,7 @@ router.get("/translate/:text", async (req, res) => {
 	)
 		.then((res) => res.json())
 		.then((data) => {
-			res.json({ "result": data.responseData.translatedText, "request": req.params.text });
+			res.json({ "result": data.matches[0].translation, "request": req.params.text });
 		});
 })
 export default router;
