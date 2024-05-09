@@ -19,8 +19,13 @@ router.get("/ibbOrganizasyon", async (req, res) => {
 
 			result = result.map(item => {
 				let trimmedItem = trimBirim(item);
+				//(1 ) -> (1) Hukuk müşaviri
+				if (trimmedItem.includes("(1 )")) {
+					trimmedItem = trimmedItem.replace("(1 )", "(1) ");
+				}
 				let trimmedItemLength = trimmedItem.length;
-				//
+
+				//Tamamı büyük harf olan isimleri alma
 				if (trimmedItem[trimmedItemLength - 1].toLowerCase() != trimBirim(item)[trimmedItemLength - 1]) {
 					return;
 				}
