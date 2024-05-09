@@ -18,12 +18,18 @@ router.get("/ibbOrganizasyon", async (req, res) => {
 			let organizasyon = [];
 
 			result = result.map(item => {
-				if (item.includes("baslik")) {
-					organizasyon.push({ baskanlikAdi: trimBirim(item), birimler: [] });
+				let trimmedItem = trimBirim(item);
+				let trimmedItemLength = trimmedItem.length;
+				//
+				if (trimmedItem[trimmedItemLength - 1].toLowerCase() != trimBirim(item)[trimmedItemLength - 1]) {
+					return;
+				}
+				else if (item.includes("baslik")) {
+					organizasyon.push({ baskanlikAdi: trimmedItem, birimler: [] });
 				}
 				else if (item.includes("adsoyad")) {
 					let currentIndex = organizasyon.length - 1;
-					organizasyon[currentIndex].birimler.push(trimBirim(item));
+					organizasyon[currentIndex].birimler.push(trimmedItem);
 				}
 				else {
 					console.error("Baskanlık veya birim değil!");
