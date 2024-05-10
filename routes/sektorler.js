@@ -34,11 +34,14 @@ router.get("/sektorler/startsWith/:startsWith", async (req, res) => {
 });
 
 //ADD A SECTOR
-router.get("/sektorler/add/:name/", async (req, res) => {
+router.post("/sektorler/add/", async (req, res) => {
+
+	let sektorName = req.body;
+
 	const result = await db
 		.collection("sektorler")
-		.insertOne({ name: req.params.name });
-	res.json(result);
+		.insertOne({ name: { tr: sektorName.name_tr, en: sektorName.name_en } });
+	res.json({ "msg": result, added: req.body });
 });
 
 //DELETE A SECTOR
