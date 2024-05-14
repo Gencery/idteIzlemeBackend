@@ -53,17 +53,20 @@ router.get("/sektorler/delete/:id", async (req, res) => {
 });
 
 //UPDATE A SECTOR
-router.get("/sektorler/update/:id/:name/", async (req, res) => {
+router.post("/sektorler/update/:id/", async (req, res) => {
 	const result = await db
 		.collection("sektorler")
 		.replaceOne(
 			{ _id: new mongodb.ObjectId(req.params.id) },
-			{ name: req.params.name }
+			{
+				name: {
+					tr: req.body.name_tr,
+					en: req.body.name_en
+				}
+			}
 		);
 
-	res.json(result);
+	res.json({ "msg": result, added: req.body });
 });
-
-
 
 export default router;
