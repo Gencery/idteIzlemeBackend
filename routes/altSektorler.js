@@ -39,10 +39,19 @@ router.get("/altSektorler/list/:sektorId", async (req, res) => {
 
 
 //ADD A SUBSECTOR
-router.get("/altSektorler/add/:sektorId/:name", async (req, res) => {
+router.post("/altSektorler/add/", async (req, res) => {
+
+   let altSektor = post.body;
+
    const result = await db
       .collection("altSektorler")
-      .insertOne({ name: req.params.name, sektorId: req.params.sektorId });
+      .insertOne({
+         name: {
+            tr: altSektor.name_tr,
+            en: altSektor.name_en
+         },
+         sektorId: altSektor.sektorId
+      })
    res.json(result);
 });
 
@@ -54,13 +63,22 @@ router.get("/altSektorler/delete/:id", async (req, res) => {
    res.json(result);
 });
 
-// //UPDATE A SUBSECTOR
-router.get("/altSektorler/update/:id/:sektorId/:name", async (req, res) => {
+//UPDATE A SUBSECTOR
+router.post("/altSektorler/update/", async (req, res) => {
+
+   let altSektor = req.body;
+
    const result = await db
       .collection("altSektorler")
       .replaceOne(
-         { _id: new mongodb.ObjectId(req.params.id) },
-         { name: req.params.name, sektorId: req.params.sektorId }
+         { _id: new mongodb.ObjectId(altSektor.id) },
+         {
+            name: {
+               tr: altSektor.name_tr,
+               en: altSektor.name_en
+            },
+            sektorId: altSektor.sektorId
+         }
       );
 
    res.json(result);

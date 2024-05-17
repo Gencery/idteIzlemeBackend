@@ -36,11 +36,11 @@ router.get("/sektorler/startsWith/:startsWith", async (req, res) => {
 //ADD A SECTOR
 router.post("/sektorler/add/", async (req, res) => {
 
-	let sektorName = req.body;
+	let sektor = req.body;
 
 	const result = await db
 		.collection("sektorler")
-		.insertOne({ name: { tr: sektorName.name_tr, en: sektorName.name_en } });
+		.insertOne({ name: { tr: sektor.name_tr, en: sektor.name_en } });
 	res.json({ "msg": result, added: req.body });
 });
 
