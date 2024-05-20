@@ -39,9 +39,10 @@ router.get("/altSektorler/list/:sektorId", async (req, res) => {
 
 
 //ADD A SUBSECTOR
-router.post("/altSektorler/add/", async (req, res) => {
+router.post("/altSektorler/add/:sektorId", async (req, res) => {
 
-   let altSektor = post.body;
+   let altSektor = req.body;
+   let sektorId = req.params.sektorId;
 
    const result = await db
       .collection("altSektorler")
@@ -50,9 +51,9 @@ router.post("/altSektorler/add/", async (req, res) => {
             tr: altSektor.name_tr,
             en: altSektor.name_en
          },
-         sektorId: altSektor.sektorId
+         sektorId: sektorId
       })
-   res.json(result);
+   res.json({ "msg": result, added: req.body });
 });
 
 //DELETE A SUBSECTOR
