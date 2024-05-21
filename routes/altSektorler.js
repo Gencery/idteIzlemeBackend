@@ -65,7 +65,7 @@ router.get("/altSektorler/delete/:id", async (req, res) => {
 });
 
 //UPDATE A SUBSECTOR
-router.post("/altSektorler/update/", async (req, res) => {
+router.post("/altSektorler/update/:altSektorId", async (req, res) => {
 
    let altSektor = req.body;
 
