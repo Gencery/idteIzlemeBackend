@@ -2,15 +2,18 @@ import express from "express";
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
-router.get("/translate/:text", async (req, res) => {
-
+router.post("/translate/", async (req, res) => {
 
 	fetch(
-		`https://api.mymemory.translated.net/get?user=34854f247e3138f2e2f2&langpair=tr|en&q=${req.params.text}`
+		`https://api.mymemory.translated.net/get?user=34854f247e3138f2e2f2&langpair=tr|en&q=${req.body.toBeTranslated}`
 	)
 		.then((res) => res.json())
 		.then((data) => {
-			res.json({ "result": data.matches[0].translation, "request": req.params.text });
+			res.json(
+				{
+					"result": data.responseData.translatedText,
+				}
+			);
 		});
 })
 export default router;

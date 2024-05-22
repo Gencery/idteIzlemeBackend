@@ -37,7 +37,6 @@ router.get("/altSektorler/list/:sektorId", async (req, res) => {
 });
 
 
-
 //ADD A SUBSECTOR
 router.post("/altSektorler/add/:sektorId", async (req, res) => {
 
@@ -65,24 +64,26 @@ router.get("/altSektorler/delete/:id", async (req, res) => {
 });
 
 //UPDATE A SUBSECTOR
-router.post("/altSektorler/update/:altSektorId", async (req, res) => {
+router.patch("/altSektorler/update/:altSektorId", async (req, res) => {
 
    let altSektor = req.body;
 
    const result = await db
       .collection("altSektorler")
-      .replaceOne(
-         { _id: new mongodb.ObjectId(altSektor.id) },
+      .updateOne(
+         { _id: new mongodb.ObjectId(req.params.altSektorId) },
          {
-            name: {
-               tr: altSektor.name_tr,
-               en: altSektor.name_en
-            },
-            sektorId: altSektor.sektorId
+            $set: {
+               name: {
+                  tr: altSektor.name_tr,
+                  en: altSektor.name_en
+               }
+            }
+
          }
       );
 
-   res.json(result);
+   res.json({ msg: result });
 });
 
 export default router;
