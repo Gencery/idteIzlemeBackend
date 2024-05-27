@@ -1,6 +1,7 @@
 import express from "express";
-
+import { sortArray } from "../utils.js";
 const router = express.Router();
+
 //READ ALL SECTORS (OR add a condition)
 router.get("/ibbOrganizasyon", async (req, res) => {
 
@@ -40,6 +41,14 @@ router.get("/ibbOrganizasyon", async (req, res) => {
 					console.error("Baskanlık veya birim değil!");
 				}
 			})
+
+			//baskanlik adina gore sırala
+			sortArray(organizasyon, "baskanlikAdi");
+
+			//müdürlük adına göre sırala
+			organizasyon.forEach((item) => {
+				sortArray(item.birimler);
+			});
 
 			res.json({
 				result: organizasyon.slice(2)
