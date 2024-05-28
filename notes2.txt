@@ -34,25 +34,25 @@ Notlar
 Gösterge	2019	2020	2021	2022	2023	2024
 
 //EYLEMLER
-Eylem Kodu (Text-Any)
-Eylem Adı (Text-Any)
-Eylem Alanı (Text-Any)
-Yetki (Option many)
-Stratejik Plan (Text-Any)
-Eylem Türü (Option many)
-Eylem Tanımı (Text-Any)
-Eylem Adımları (Text-Any)
-Planlanan Başlanma (Date)
-Planlanan Bitiş (Date)
+Eylem Kodu (Text-Any)                           //Kodu
+Eylem Adı (Text-Any)                            //Kodu
+Eylem Alanı (Text-Any)                          //Bilgiler
+Yetki (Option many)                             //Bilgiler
+Stratejik Plan (Text-Any)                       //Bilgiler
+Eylem Türü (Option many)                        //Bilgiler
+Eylem Tanımı (Text-Any)                         //Kodu
+Eylem Adımları (Text-Any)                       //Eylem Adımları
+Planlanan Başlanma (Date)                       //Bilgiler
+Planlanan Bitiş (Date)                          //Bilgiler
 YŞEP İzleme (Option)
 SP Başlanacak (Date)
 SP Açıklama (Text-Any)
 NOT (Text-Any)
 Azaltım Not Tur (Text-Any)
 Azaltım Not Eng (Text-Any)
-Energy savings (MWh) (Float)
-Renewable energy production (MWh) (Float)
-Toplam Azaltım CO2e (Ton) (Float)
+Energy savings (MWh) (num)
+Renewable energy production (MWh) (num)
+Toplam Azaltım CO2e (Ton) (num)
 Tahmini maliyet (Not)
 Hedef (Text-Any)
 Gösterge (List)
