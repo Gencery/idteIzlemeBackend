@@ -44,9 +44,9 @@ Eylem Tanımı (Text-Any)                         //Kodu
 Eylem Adımları (Text-Any)                       //Eylem Adımları
 Planlanan Başlanma (Date)                       //Bilgiler
 Planlanan Bitiş (Date)                          //Bilgiler
-YŞEP İzleme (Option)
-SP Başlanacak (Date)
-SP Açıklama (Text-Any)
+YŞEP İzleme (Option)                            //Bilgiler
+SP Başlanacak (Date)                            //Bilgiler
+SP Açıklama (Text-Any)                          //
 NOT (Text-Any)
 Azaltım Not Tur (Text-Any)
 Azaltım Not Eng (Text-Any)
