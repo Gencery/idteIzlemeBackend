@@ -1,0 +1,32 @@
+Kodu
+Adı
+Tanımı
+ysep/SECAP
+AZALTIM/Uyum
+sEKTORLER
+ALTSEKTORLER
+Yetki
+stratejik plan (yılı)
+planlanan Başlama
+planlanan Bitiş
+ilgili birimler
+ilgili Şirketler
+dış kurumlar
+Notlar
+Azaltım not tr / en 
+energy savings
+Renewable energy production
+Toplam Azaltım
+(faaliyet? ) gerek yok
+
+Faaliyetler//
+
+Kodu
+ismi
+Durum
+Tanımı
+yşep secap eylem ismi (dropdown)
+sektör dropdown
+altsektor dropdown
+durum Özeti
+maliyeti
