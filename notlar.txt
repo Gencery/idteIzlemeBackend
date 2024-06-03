@@ -1,15 +1,15 @@
-Kodu
-Adı
-Tanımı
-ysep/SECAP
-AZALTIM/Uyum
-sEKTORLER
-ALTSEKTORLER
-Yetki
-stratejik plan (yılı)
-planlanan Başlama
-planlanan Bitiş
-ilgili birimler
+Kodu (text any)
+Adı (text any)
+Tanımı (text any)
+ysep/SECAP (dropdown select)
+AZALTIM/Uyum (dropdown select)
+sEKTORLER (dropdown select)
+ALTSEKTORLER (dropdown select)
+Yetki (dropdown select)
+stratejik plan (yılı) (year select)
+planlanan Başlama (year select)
+planlanan Bitiş (year select)
+ilgili birimler (dropdown select many)
 ilgili Şirketler
 dış kurumlar
 Notlar
