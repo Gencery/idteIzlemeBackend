@@ -10,14 +10,13 @@ stratejik plan (yılı) (year select)
 planlanan Başlama (year select)
 planlanan Bitiş (year select)
 ilgili birimler (dropdown select many)
-ilgili Şirketler
-dış kurumlar
-Notlar
-Azaltım not tr / en 
-energy savings
-Renewable energy production
-Toplam Azaltım
-(faaliyet? ) gerek yok
+ilgili Şirketler (dropdown select many)
+dış kurumlar (dropdown select many)
+Notlar (text any)
+Azaltım not tr / en (text any) 
+energy savings (float)
+Renewable energy production (float)
+Toplam Azaltım (float)
 
 Faaliyetler//
 
