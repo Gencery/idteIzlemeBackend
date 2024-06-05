@@ -9,11 +9,18 @@ router.post("/translate/", async (req, res) => {
 	)
 		.then((res) => res.json())
 		.then((data) => {
-			res.json(
-				{
-					"result": data.responseData.translatedText,
-				}
-			);
+			if (data.responseDetails == "QUERY LENGTH LIMIT EXCEEDED. MAX ALLOWED QUERY : 500 CHARS") {
+				res.json({
+					result: 0
+				})
+			}
+			else {
+				res.json(
+					{
+						"result": data.responseData.translatedText,
+					}
+				)
+			}
 		});
 })
 export default router;
