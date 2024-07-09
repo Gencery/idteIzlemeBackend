@@ -2,10 +2,8 @@ import express from "express";
 import { sortArray } from "../utils.js";
 const router = express.Router();
 
-//READ ALL SECTORS (OR add a condition)
-router.get("/ibbOrganizasyon", async (req, res) => {
-
-	fetch("https://www.izmir.bel.tr/tr/Birimler/289")
+async function getIbbOrg() {
+	return fetch("https://www.izmir.bel.tr/tr/Birimler/289")
 		.then(res => res.text())
 		.then(data => {
 
@@ -50,9 +48,17 @@ router.get("/ibbOrganizasyon", async (req, res) => {
 				sortArray(item.birimler);
 			});
 
-			res.json({
-				result: organizasyon.slice(2)
-			})
+			return organizasyon.slice(2);
 		})
+}
+
+//READ ALL SECTORS (OR add a condition)
+router.get("/ibbOrganizasyon", async (req, res) => {
+
+	let organizasyon = await getIbbOrg();
+
+	res.json({
+		result: organizasyon
+	})
 })
 export default router;
