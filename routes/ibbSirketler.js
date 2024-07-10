@@ -1,31 +1,16 @@
 import express from "express";
+import { getIbbSirketler } from "../logic/ibbSirketler.js";
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
 router.get("/ibbSirketler", async (req, res) => {
 
-	fetch("https://www.izmir.bel.tr/tr/Sirketler/169")
-		.then(res => res.text())
-		.then(data => {
-			let regex = /<h4 style="color:#5d574d">.+<\/h4>/g;
-			let result = data.match(regex);
-			//
-			function trimSirket(nodeStr) {
-				return fromHtmlEntities(nodeStr.replace(/<[^>]+>/g, '').trim());
-			}
+	let result = await getIbbSirketler();
 
-			let sirketler = [];
-
-			result = result.map(item => {
-				sirketler.push(trimSirket(item))
-			})
-
-			sirketler = sortArray(sirketler);
-
-			res.json({
-				result: sirketler
-			})
-
-		})
+	res.json(
+		{
+			result: result
+		}
+	)
 })
 export default router;

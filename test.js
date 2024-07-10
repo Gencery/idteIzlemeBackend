@@ -1,13 +1,9 @@
-let api1ep = "https://fake-json-api.mock.beeceptor.com/companies";
-let api2ep = "https://api.sampleapis.com/coffee/hot";
+{
+  fetch("https://www.izmir.bel.tr/tr/Sirketler/169")
+    .then(res => res.text())
+    .then(data => {
 
-async function fetchData(url) {
+      console.log(data);
 
-  return fetch(url)
-    .then(res => res.json())
+    })
 }
-
-let result1 = await fetchData(api1ep);
-let result2 = await fetchData(api2ep);
-
-console.log([...result1, ...result2].length);

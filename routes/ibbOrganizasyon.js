@@ -1,5 +1,5 @@
 import express from "express";
-import getIbbOrg from "./../logic/ibbOrganizasyon.js"
+import { getIbbOrg } from "./../logic/ibbOrganizasyon.js"
 const router = express.Router();
 
 

@@ -1,5 +1,7 @@
 import { sektorlerRead } from "./sektorler.js";
 import { altSektorlerRead } from "./altSektorler.js";
+import { getIbbOrg } from "./../logic/ibbOrganizasyon.js"
+import { getIbbSirketler } from "./ibbSirketler.js";
 
 export async function sektorlerWithAltSektorler() {
   let sektorler = await sektorlerRead();

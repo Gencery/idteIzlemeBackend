@@ -1,6 +1,6 @@
 import { sortArray } from "../utils.js"
 
-export default async function getIbbOrg() {
+export async function getIbbOrg() {
   return fetch("https://www.izmir.bel.tr/tr/Birimler/289")
     .then(res => res.text())
     .then(data => {
