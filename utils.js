@@ -5,10 +5,15 @@ export function fromHtmlEntities(string) {
 }
 //sort array
 export function sortArray(arr, prop) {
+
+   let newArr = arr.slice();
+
    if (prop) {
-      arr.sort((a, b) => a[prop].toLocaleLowerCase("TR").localeCompare(b[prop].toLocaleLowerCase("TR")));
+      newArr.sort((a, b) => a[prop].toLocaleLowerCase("TR").localeCompare(b[prop].toLocaleLowerCase("TR")));
    }
    else {
-      arr.sort((a, b) => a.toLocaleLowerCase("TR").localeCompare(b.toLocaleLowerCase("TR")));
+      newArr.sort((a, b) => a.toLocaleLowerCase("TR").localeCompare(b.toLocaleLowerCase("TR")));
    }
+
+   return newArr;
 }

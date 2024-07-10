@@ -1,5 +1,6 @@
 import express from "express";
 import db from "./../conn.js";
+import { sektorlerWithAltSektorler } from "../logic/misc.js";
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
@@ -20,6 +21,13 @@ router.get("/test/list", async (req, res) => {
 	});
 });
 
+router.get("/everything", async (req, res) => {
+	let result = await sektorlerWithAltSektorler();
+
+	res.json(
+		result
+	)
+})
 
 
 

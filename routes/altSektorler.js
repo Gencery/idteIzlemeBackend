@@ -1,34 +1,15 @@
 import mongodb from "mongodb";
 import express from "express";
 import db from "../conn.js";
+import { altSektorlerRead } from "../logic/altSektorler.js";
 
 const router = express.Router();
 //READ ALL SUBSECTORS
 router.get("/altSektorler/list/:sektorId", async (req, res) => {
 
    let sektorId = req.params.sektorId;
-   let result = db
-      .collection("altSektorler")
+   let result = await altSektorlerRead(sektorId);
 
-   if (sektorId == "all") {
-      result = await result.aggregate(
-         [
-            { $sort: { name: 1 } },
-         ],
-         { collation: { locale: "tr" } }
-      )
-         .toArray();
-   }
-   else {
-      result = await result.aggregate(
-         [
-            { $sort: { name: 1 } },
-            { $match: { sektorId: sektorId } },
-         ],
-         { collation: { locale: "tr" } }
-      )
-         .toArray();
-   }
 
    res.json({
       count: result.length,

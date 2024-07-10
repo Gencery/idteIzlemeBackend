@@ -1,5 +1,4 @@
 import express from "express";
-import { fromHtmlEntities, sortArray } from "../utils.js"
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
@@ -21,7 +20,7 @@ router.get("/ibbSirketler", async (req, res) => {
 				sirketler.push(trimSirket(item))
 			})
 
-			sortArray(sirketler);
+			sirketler = sortArray(sirketler);
 
 			res.json({
 				result: sirketler
