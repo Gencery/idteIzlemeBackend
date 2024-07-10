@@ -2,6 +2,7 @@ import mongodb from "mongodb";
 import express from "express";
 import db from "./../conn.js";
 import { sektorlerRead } from "../logic/sektorler.js";
+import { sektorlerWithAltSektorler } from "../logic/misc.js";
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
@@ -14,6 +15,17 @@ router.get("/sektorler/list", async (req, res) => {
 		result: result,
 	});
 });
+
+//READ SECTORS WITH THEIR SUBSECTORS
+router.get("/sektorler/altSektorleriyle", async (req, res) => {
+	let result = await sektorlerWithAltSektorler();
+
+	res.json(
+		result
+	)
+})
+
+
 
 //READ SECTORS STARTS WITH (* girince hata veriyor)
 router.get("/sektorler/startsWith/:startsWith", async (req, res) => {
