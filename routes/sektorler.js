@@ -20,8 +20,10 @@ router.get("/sektorler/list", async (req, res) => {
 router.get("/sektorler/altSektorleriyle", async (req, res) => {
 	let result = await sektorlerWithAltSektorler();
 
-	res.json(
-		result
+	res.json({
+		result: result,
+		length: result.length
+	}
 	)
 })
 
