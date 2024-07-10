@@ -1,22 +1,21 @@
 import express from "express";
 import db from "./../conn.js";
+import { sektorlerWithAltSektorler } from "../logic/misc.js";
+import { getIbbSirketler } from "../logic/ibbSirketler.js";
+import { getIbbOrg } from "../logic/ibbOrganizasyon.js";
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
-router.get("/test/list", async (req, res) => {
-	const resultSektorler = await db
-		.collection("sektorler")
-		.aggregate([{ $sort: { name: 1 } }], { collation: { locale: "tr" } })
-		.toArray();
+router.get("/test/", async (req, res) => {
 
-	const resultAltSektorler = await db
-		.collection("altSektorler")
-		.aggregate([{ $sort: { name: 1 } }], { collation: { locale: "tr" } })
-		.toArray();
-
+	let sektorlerAltsektorleriyle = await sektorlerWithAltSektorler();
+	let ibbSirketler = await getIbbSirketler();
+	let ibbOrganizasyon = await getIbbOrg();
 
 	res.json({
-		result: [...resultSektorler, ...resultAltSektorler]
+		sektorlerAltsektorleriyle: sektorlerAltsektorleriyle,
+		ibbSirketler: ibbSirketler,
+		ibbOrganizasyon: ibbOrganizasyon
 	});
 });
 
