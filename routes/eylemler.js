@@ -1,6 +1,9 @@
 import mongodb from "mongodb";
 import express from "express";
 import db from "./../conn.js";
+import { sektorlerWithAltSektorler } from "../logic/misc.js";
+import { getIbbSirketler } from "../logic/ibbSirketler.js";
+import { getIbbOrg } from "../logic/ibbOrganizasyon.js";
 
 const router = express.Router();
 //READ ALL EYLEMLER
@@ -46,6 +49,20 @@ router.put("/eylemler/update/:id", async (req, res) => {
 		);
 
 	res.json({ "msg": result, added: req.body });
+});
+
+//EYLEMLER FORM DATA
+router.get("/eylemlerFormData/", async (req, res) => {
+
+	let sektorlerAltsektorleriyle = await sektorlerWithAltSektorler();
+	let ibbSirketler = await getIbbSirketler();
+	let ibbOrganizasyon = await getIbbOrg();
+
+	res.json({
+		sektorlerAltsektorleriyle: sektorlerAltsektorleriyle,
+		ibbSirketler: ibbSirketler,
+		ibbOrganizasyon: ibbOrganizasyon
+	});
 });
 
 export default router;
