@@ -51,7 +51,7 @@ import { sortArray } from "../utils.js"
 // }
 
 export async function getIbbOrg() {
-  return fetch("https://www.izmir.bel.tr/tr/Birimler/289")
+  return fetch("https://eksisozluk.com/basliklar/gundem")
     .then(res => res.text())
     .then(data => {
       return data;
