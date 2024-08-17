@@ -50,8 +50,11 @@ import { sortArray } from "../utils.js"
 //     })
 // }
 
+
+
+
 export async function getIbbOrg() {
-  return fetch("https://eksisozluk.com/basliklar/gundem")
+  return fetch("https://eislem.izmir.bel.tr/tr/EvrakOnayYetkiliListesi/")
     .then(res => res.text())
     .then(data => {
       return data;
