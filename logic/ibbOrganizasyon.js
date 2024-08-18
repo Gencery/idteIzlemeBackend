@@ -51,12 +51,24 @@ import { sortArray } from "../utils.js"
 // }
 
 
-
+function decodeHtmlEntities(str) {
+  return str.replace(/&#x([0-9A-Fa-f]+);/g, (match, hex) => {
+    return String.fromCharCode(parseInt(hex, 16));
+  });
+}
 
 export async function getIbbOrg() {
   return fetch("https://eislem.izmir.bel.tr/tr/EvrakOnayYetkiliListesi/")
-    .then(res => res.text())
+    .then(res => res.arrayBuffer())
     .then(data => {
-      return data;
+
+      let decoder = new TextDecoder("iso-8859-1");
+      data = decoder.decode(data)
+
+      let regex = /<option .+>.+<\/option>/g;
+      let result = decodeURIComponent(data).match(regex);
+
+
+      return ["başkanlık", ...result.map(item => decodeHtmlEntities(item.replace(/<[^>]+>/g, '').trim()).toLowerCase())];
     })
 }
