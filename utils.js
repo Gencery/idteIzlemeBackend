@@ -17,3 +17,9 @@ export function sortArray(arr, prop) {
 
    return newArr;
 }
+
+export function decodeHtmlEntities(str) {
+   return str.replace(/&#x([0-9A-Fa-f]+);/g, (match, hex) => {
+      return String.fromCharCode(parseInt(hex, 16));
+   });
+}

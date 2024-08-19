@@ -1,4 +1,5 @@
-import { sortArray } from "../utils.js"
+import { decodeHtmlEntities } from "../utils.js"
+import { sortArray } from "../utils.js";
 
 // export async function getIbbOrg() {
 //   return fetch("https://www.izmir.bel.tr/tr/Birimler/289")
@@ -51,24 +52,32 @@ import { sortArray } from "../utils.js"
 // }
 
 
-function decodeHtmlEntities(str) {
-  return str.replace(/&#x([0-9A-Fa-f]+);/g, (match, hex) => {
-    return String.fromCharCode(parseInt(hex, 16));
-  });
-}
-
 export async function getIbbOrg() {
   return fetch("https://eislem.izmir.bel.tr/tr/EvrakOnayYetkiliListesi/")
-    .then(res => res.arrayBuffer())
+    .then(res => res.text())
     .then(data => {
 
-      let decoder = new TextDecoder("iso-8859-1");
-      data = decoder.decode(data)
+
 
       let regex = /<option .+>.+<\/option>/g;
-      let result = decodeURIComponent(data).match(regex);
+      let result = data.match(regex);
+
+      result = result.map(item => {
+        //remove tags from result
+        item = item.replace(/<[^>]+>/g, '');
+        //trim division names
+        item = item.trim();
+        //convert utf to string
+        item = decodeHtmlEntities(item);
+        return item;
+      }
+      )
+
+      //sort division names alphabetically
+      let resultSorted = sortArray(result);
+
+      return resultSorted;
 
 
-      return ["başkanlık", ...result.map(item => decodeHtmlEntities(item.replace(/<[^>]+>/g, '').trim()).toLowerCase())];
     })
 }
