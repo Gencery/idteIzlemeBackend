@@ -1,7 +1,7 @@
 import { fromHtmlEntities, sortArray } from "../utils.js"
 
 export async function getIbbSirketler() {
-  return fetch("https://www.izmir.bel.tr/tr/Sirketler/169")
+  return fetch("https://web.archive.org/web/20240423135005/https://www.izmir.bel.tr/tr/Sirketler/169")
     .then(res => res.text())
     .then(data => {
       let regex = /<h4 style="color:#5d574d">.+<\/h4>/g;
