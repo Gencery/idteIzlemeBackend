@@ -16,7 +16,7 @@ export async function getDisKurumlar() {
         item = fromHtmlEntities(item);
         //remove and Trim tags
         item = removeTrimTags(item);
-        //
+        //item boş string olmamalı, link olmamalı, sayı ile başlamamalı (telefon no vb.)
         if (item && item.indexOf("www") == -1 && !parseInt(item[0])) {
           sirketler.push(item);
         }
