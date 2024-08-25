@@ -1,5 +1,5 @@
 import { decodeHtmlEntities } from "../utils.js"
-import { sortArray } from "../utils.js";
+import { sortArray, capitalizeText } from "../utils.js";
 
 // export async function getIbbOrg() {
 //   return fetch("https://web.archive.org/web/https://www.izmir.bel.tr/tr/Birimler/289")
@@ -69,6 +69,8 @@ export async function getIbbOrg() {
         item = item.trim();
         //convert utf to string
         item = decodeHtmlEntities(item);
+        //capitalize names
+        item = capitalizeText(item);
         return item;
       }
       )

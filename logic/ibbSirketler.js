@@ -1,4 +1,4 @@
-import { fromHtmlEntities, sortArray } from "../utils.js"
+import { fromHtmlEntities, sortArray, capitalizeText } from "../utils.js"
 
 export async function getIbbSirketler() {
   return fetch("https://web.archive.org/web/https://www.izmir.bel.tr/tr/Sirketler/169")

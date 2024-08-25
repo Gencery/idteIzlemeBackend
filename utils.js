@@ -23,3 +23,17 @@ export function decodeHtmlEntities(str) {
       return String.fromCharCode(parseInt(hex, 16));
    });
 }
+
+export function capitalizeText(str) {
+   return str.toLocaleLowerCase("tr-TR").split(" ").map(word => {
+      if (!word) {
+         return;
+      }
+      else if (word == "ve") {
+         return word;
+      }
+      else
+         return word[0].toLocaleUpperCase("tr-TR") + word.slice(1);
+   }).join(" ");
+
+}
