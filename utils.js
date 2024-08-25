@@ -1,7 +1,7 @@
 export function fromHtmlEntities(string) {
    return (string + "").replace(/&#\d+;/gm, function (s) {
       return String.fromCharCode(s.match(/\d+/gm)[0]);
-   })
+   }).replace("&nbsp;", " ")
 }
 //sort array
 export function sortArray(arr, prop) {
@@ -36,4 +36,8 @@ export function capitalizeText(str) {
          return word[0].toLocaleUpperCase("tr-TR") + word.slice(1);
    }).join(" ");
 
+}
+
+export function removeTrimTags(nodeStr) {
+   return fromHtmlEntities(nodeStr.replace(/<[^>]+>/g, '').trim());
 }

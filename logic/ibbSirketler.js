@@ -1,4 +1,4 @@
-import { fromHtmlEntities, sortArray, capitalizeText } from "../utils.js"
+import { fromHtmlEntities, sortArray, removeTrimTags } from "../utils.js"
 
 export async function getIbbSirketler() {
   return fetch("https://web.archive.org/web/https://www.izmir.bel.tr/tr/Sirketler/169")
@@ -14,11 +14,11 @@ export async function getIbbSirketler() {
       let sirketler = [];
 
       result = result.map(item => {
-        sirketler.push(trimSirket(item))
+        sirketler.push(removeTrimTags(item))
       })
 
       sirketler = sortArray(sirketler);
-
+      //http://web.archive.org/web/20240414143646/https://www.izmir.bel.tr/tr/IzmirKamuKurumlari/51/276
       return sirketler;
 
     })
