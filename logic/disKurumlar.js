@@ -9,7 +9,7 @@ export async function getDisKurumlar() {
 
       //
 
-      let sirketler = [];
+      let kurumlar = [];
 
       result = result.map(item => {
         //html to string
@@ -18,12 +18,12 @@ export async function getDisKurumlar() {
         item = removeTrimTags(item);
         //item boş string olmamalı, link olmamalı, sayı ile başlamamalı (telefon no vb.)
         if (item && item.indexOf("www") == -1 && !parseInt(item[0])) {
-          sirketler.push(item);
+          kurumlar.push(item);
         }
       })
 
-      sirketler = sortArray(sirketler);
-      return sirketler;
+      kurumlar = sortArray(kurumlar);
+      return kurumlar;
 
     })
 } 
