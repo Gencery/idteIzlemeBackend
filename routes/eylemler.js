@@ -4,6 +4,7 @@ import db from "./../conn.js";
 import { sektorlerWithAltSektorler } from "../logic/misc.js";
 import { getIbbSirketler } from "../logic/ibbSirketler.js";
 import { getIbbOrg } from "../logic/ibbOrganizasyon.js";
+import { getDisKurumlar } from "../logic/disKurumlar.js";
 
 const router = express.Router();
 //READ ALL EYLEMLER
@@ -57,11 +58,13 @@ router.get("/eylemlerFormData/", async (req, res) => {
 	let sektorlerAltsektorleriyle = await sektorlerWithAltSektorler();
 	let ibbSirketler = await getIbbSirketler();
 	let ibbOrganizasyon = await getIbbOrg();
+	let disKurumlar = await getDisKurumlar();
 
 	res.json({
 		sektorlerAltsektorleriyle: sektorlerAltsektorleriyle,
 		ibbSirketler: ibbSirketler,
-		ibbOrganizasyon: ibbOrganizasyon
+		ibbOrganizasyon: ibbOrganizasyon,
+		disKurumlar: disKurumlar
 	});
 });
 
