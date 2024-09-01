@@ -28,32 +28,34 @@ router.post("/altSektorler/add/:sektorId", async (req, res) => {
    let result = null;
 
    //altsektör eklenecek sektör varsa
-   if(isSektorPresent){
+   if (isSektorPresent) {
       const resultOfInsert = await db
-      .collection("altSektorler")
-      .insertOne({
-         name: {
-            tr: altSektor.name_tr,
-            en: altSektor.name_en
-         },
-         sektorId: sektorId
-      })
+         .collection("altSektorler")
+         .insertOne({
+            name: {
+               tr: altSektor.name_tr,
+               en: altSektor.name_en
+            },
+            sektorId: sektorId
+         })
       //returns {"acknowledged":true,"insertedId":"66cef6cd8009b56384fd5e94"} if successful
 
       //alt sektör ekleme başarılı olduysa
-      if(resultOfInsert.acknowledged){
-         result = {msg: "Yeni alt sektör eklendi!", code: 201}
+      if (resultOfInsert.acknowledged) {
+         result = {
+            msg: `Yeni alt sektör ${""} eklendi!`, code: 201
+         }
       }
-      else{
-         result = {msg: "Yeni alt sektör ekleme işlemi başarısız oldu!", code: 501}
+      else {
+         result = { msg: "Yeni alt sektör ekleme işlemi başarısız oldu!", code: 501 }
       }
    }
-   else{
-      result =  {msg: "Yeni alt sektör eklemek istediğiniz sektör bulunamadı!", code: 404}
+   else {
+      result = { msg: "Yeni alt sektör eklemek istediğiniz sektör bulunamadı!", code: 404 }
    }
 
-   
-   res.json({ "msg": result, added: req.body });
+
+   res.json({ result, added: result.code == 201 ? req.body : null });
 
 });
 
