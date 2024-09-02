@@ -55,7 +55,7 @@ router.post("/altSektorler/add/:sektorId", async (req, res) => {
    }
 
 
-   res.json({ result, added: result.code == 201 ? req.body : null });
+   res.json({ ...result, added: result.code == 201 ? req.body : null });
 
 });
 
