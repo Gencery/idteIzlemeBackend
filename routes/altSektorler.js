@@ -1,6 +1,7 @@
 import mongodb from "mongodb";
 import express from "express";
 import db from "../conn.js";
+import { sektorlerRead, } from "../logic/sektorler.js";
 import { altSektorlerRead } from "../logic/altSektorler.js";
 
 const router = express.Router();
@@ -23,8 +24,8 @@ router.post("/altSektorler/add/:sektorId", async (req, res) => {
 
    let altSektor = req.body;
    let sektorId = req.params.sektorId;
-   let isSektorPresent = altSektorlerRead(sektorId).length;
-
+   let isSektorPresent = (await sektorlerRead()).filter(sektor => sektor._id == sektorId).length;
+   //console.log(isSektorPresent);
    let result = null;
 
    //altsektör eklenecek sektör varsa

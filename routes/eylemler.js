@@ -1,7 +1,7 @@
 import mongodb from "mongodb";
 import express from "express";
 import db from "./../conn.js";
-import { sektorlerWithAltSektorler } from "../logic/misc.js";
+import { sektorlerWithAltSektorler } from "../logic/sektorler.js";
 import { getIbbSirketler } from "../logic/ibbSirketler.js";
 import { getIbbOrg } from "../logic/ibbOrganizasyon.js";
 import { getDisKurumlar } from "../logic/disKurumlar.js";

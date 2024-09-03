@@ -2,7 +2,7 @@ import mongodb from "mongodb";
 import express from "express";
 import db from "./../conn.js";
 import { sektorlerRead } from "../logic/sektorler.js";
-import { sektorlerWithAltSektorler } from "../logic/misc.js";
+import { sektorlerWithAltSektorler } from "../logic/sektorler.js";
 
 const router = express.Router();
 //READ ALL SECTORS (OR add a condition)
@@ -21,8 +21,7 @@ router.get("/sektorler/altSektorleriyle", async (req, res) => {
 	let result = await sektorlerWithAltSektorler();
 
 	res.json({
-		result: result,
-		length: result.length
+		...result
 	}
 	)
 })
@@ -51,12 +50,24 @@ router.post("/sektorler/add/", async (req, res) => {
 
 	const result = await db
 		.collection("sektorler")
-		.insertOne({ name: { tr: sektor.name_tr, en: sektor.name_en } });
+		.insertOne({ name: { tr: sektor.name_tr.trim(), en: sektor.name_en.trim() } });
 	res.json({ "msg": result, added: req.body });
 });
 
 //DELETE A SECTOR
 router.get("/sektorler/delete/:id", async (req, res) => {
+
+	let sektorId = req.params.id;
+
+	//önce alt sektörlerini sil
+	const deleteAltSektorlerResult = await db
+		.collection("altSektorler")
+		.deleteMany( { sektorId : sektorId} );
+
+	console.log(deleteAltSektorlerResult);
+
+	
+
 	const result = await db
 		.collection("sektorler")
 		.deleteOne({ _id: new mongodb.ObjectId(req.params.id) });
