@@ -64,7 +64,7 @@ router.get("/sektorler/delete/:id", async (req, res) => {
 		.collection("altSektorler")
 		.deleteMany( { sektorId : sektorId} );
 
-	console.log(deleteAltSektorlerResult);
+	//console.log(deleteAltSektorlerResult);
 
 	
 
