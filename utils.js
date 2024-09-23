@@ -41,3 +41,26 @@ export function capitalizeText(str) {
 export function removeTrimTags(nodeStr) {
    return fromHtmlEntities(nodeStr.replace(/<[^>]+>/g, '').trim());
 }
+
+export function formToObj(obj) {
+
+   let newObj = {};
+
+   for (let key in obj) {
+      let keyParts = key.split("_");
+      let keyPartsLength = keyParts.length - 1;
+
+      let current = newObj;
+
+      for (let i = 0; i < keyPartsLength; i++) {
+         if (!current[keyParts[i]]) {
+            current[keyParts[i]] = {};
+         }
+         current = current[keyParts[i]];
+      }
+      current[keyParts[keyPartsLength]] = obj[key];
+   }
+
+   return newObj;
+
+}
