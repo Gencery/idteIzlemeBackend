@@ -9,7 +9,6 @@ import ibbSirketler from "./routes/ibbSirketler.js"
 import eylemler from "./routes/eylemler.js"
 import test from "./routes/test.js"
 import translate from "./routes/translate.js"
-import eylemlerForm from "./routes/eylemlerForm.js"
 import disKurumlar from "./routes/disKurumlar.js"
 
 //
@@ -21,7 +20,7 @@ const port = 3000;
 
 app.use(cors());
 
-app.use("/", [sektorler, altSektorler, ibbOrganizasyon, ibbSirketler, eylemler, test, translate, eylemlerForm, disKurumlar]);
+app.use("/", [sektorler, altSektorler, ibbOrganizasyon, ibbSirketler, eylemler, test, translate, disKurumlar]);
 
 app.get("/", (req, res) => {
 	res.status(200).json({

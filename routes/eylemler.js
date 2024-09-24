@@ -5,6 +5,7 @@ import { sektorlerWithAltSektorler } from "../logic/sektorler.js";
 import { getIbbSirketler } from "../logic/ibbSirketler.js";
 import { getIbbOrg } from "../logic/ibbOrganizasyon.js";
 import { getDisKurumlar } from "../logic/disKurumlar.js";
+import { formToObj } from "../utils.js";
 
 const router = express.Router();
 //READ ALL EYLEMLER
@@ -24,7 +25,7 @@ router.get("/eylemler/list/all", async (req, res) => {
 router.post("/eylemler/add/", async (req, res) => {
 	const result = await db
 		.collection("eylemler")
-		.insertOne(req.body);
+		.insertOne(formToObj(req.body));
 	res.json({ "msg": result, added: req.body });
 });
 
